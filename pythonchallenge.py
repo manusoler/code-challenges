@@ -106,6 +106,35 @@ def chall6():
   print("".join(comments))
   return "hockey",None
 
+@challenge(num = 7)
+def chall7():
+  # http://www.pythonchallenge.com/pc/def/oxygen.html
+  star_from = "90052"
+  resp = requests.get("http://www.pythonchallenge.com/pc/def/channel.zip")
+  file_path = os.path.join(tempfile.gettempdir(), "channel.zip")
+  folder_path = os.path.join(tempfile.gettempdir(), "channel")
+  with open(file_path, 'wb') as f:
+    f.write(resp.content)
+  
+  solution = 90052
+  comments = []
+
+  with zipfile.ZipFile(file_path, "r") as zip:
+    with zip.open("readme.txt", "r") as f:
+      print(f.read().decode("utf-8") )
+
+    while solution:
+      comments.append(zip.getinfo("{}.txt".format(solution)).comment.decode("utf-8"))
+      with zip.open("{}.txt".format(solution), "r") as f:
+        try:
+          text = f.read().decode("utf-8") 
+          solution = int(re.search(r"nothing is (\d+)", text).group(1))
+        except:
+          print(text, solution)
+          break
+  print("".join(comments))
+  return "hockey",None
+
 def main():
   chall0()
   chall1()
@@ -114,6 +143,7 @@ def main():
   #chall4()
   chall5()
   chall6()
+  chall7()
 
 if __name__ == "__main__":
   main()
