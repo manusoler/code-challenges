@@ -1,6 +1,8 @@
 import re
 import sys
 import math
+import string
+from datetime import datetime
 
 # Decorator
 def challenge(*args, **kwargs):
@@ -78,7 +80,7 @@ def average_word_length():
     print(math.ceil(word_len/words_num))
 
 @challenge(name="No numerals", 
-    level="Easy", 
+    level="Medium", 
     desc="""
         Take a phrase and replace any instances of an integer 
         form 0-10 and replace it with the English word that 
@@ -87,11 +89,131 @@ def average_word_length():
 def no_numerals():
     p = input()
     repl = {10:"ten", 0:"zero", 1:"one", 2:"two", 3:"three", 4:"four", 5:"five", 6:"six", 7:"seven", 8:"eight", 9:"nine"}
-
     for k,v in repl.items():
-        p = re.sub("[\D]?("+str(k)+")[\D]", v, p)
+        p = re.sub(r"\b("+str(k)+r")\b", v, p)
     print(p)
 
+@challenge(name="Youtube link finder", 
+    level="Medium", 
+    desc="""
+        Create a program that parses through a link, extracts
+        and outputs the YouTube video ID"""
+)
+def youtube_link_finder():
+    url = input()
+    id = url.split('/')[-1]
+    print(id if not id.startswith("watch") else id.split('=')[-1])
+
+@challenge(name="Secret Message", 
+    level="Medium", 
+    desc="""
+        Create a program that replaces each letter in a message
+        with its corresponding letter in a backwars version of 
+        the English alphabet"""
+)
+def secret_message():
+    alpha = string.ascii_lowercase
+    alp_rev = string.ascii_lowercase[::-1]
+    phrase = input().lower()
+    print("".join((alp_rev[alpha.index(i)] if i in alpha else i) for i in phrase))
+
+@challenge(name="Symbols", 
+    level="Medium", 
+    desc="""
+        Take a text that includes some random symbols and translate it 
+        into a text that has none of them. The resulting text should only
+        include letters and numbers"""
+)
+def symbols():
+    print(re.sub(r"[^0-9a-zA-Z ]","",input()))
+
+@challenge(name="The Spy Life", 
+    level="Medium", 
+    desc="""
+        Create a program that will take the encoded message, flip it 
+        around, remove any characters that are not a letter or a space
+        , and output the hidden message"""
+)
+def the_spy_life():
+    msg = input()
+    print("".join(re.findall(r"[A-Za-z ]",msg)[::-1]))
+
+@challenge(name="Deja Vu", 
+    level="Medium", 
+    desc="""
+        If you are gicen a string of random letters, your task is to
+        evaluate thether any letter is repeated in the string or if 
+        you only hit unique keys while you typing"""
+)
+def deja_vu():
+    string = input()
+    dv = False
+    for i in string:
+        if string.count(i) > 1:
+            dv = True
+            break
+    print("Deja Vu" if dv else "Unique")
+
+@challenge(name="Converts US date to EU date", 
+    level="Medium", 
+    desc="""
+        Create a function that takes in a string containung a date
+        that is in US format, and retur a string of the same date
+        converted to EU"""
+)
+def us_date_to_eu():
+    us_date = input()
+    fmat = r'%B %d,%Y'
+    if re.match(r'\d{1,2}/\d{1,2}/\d{4}', us_date):
+        fmat = r'%m/%d/%Y'
+    time = datetime.strptime(us_date,fmat)
+    print(re.sub(r"\b(0)\B","",time.strftime(r'%d/%m/%Y')))
+
+@challenge(name="Paint costs", 
+    level="Easy", 
+    desc="""
+        Given the total number of color of paint that you need, calculate
+        and output the total cost of  your project rounded up to the neartest 
+        whole number"""
+)
+def paint_costs():
+    colors_num = int(input())
+    price = round((40+colors_num*5)*1.1,0)
+    print(int(price))
+
+@challenge(name="Argentina", 
+    level="Easy", 
+    desc="""
+        Create a program that takes two prices and tells
+        you which one is lower after conversion"""
+)
+def argentina():
+    pesos = int(input())
+    dollars = int(input())
+    print("Pesos" if pesos*0.02 <= dollar else "Dollars")
+
+@challenge(name="Jungle Camping", 
+    level="Easy", 
+    desc="""
+        You are given the noises made by different animals that you can hear
+        in the dark, evaluate each noise to deterine which animal ir belongs
+        to. Lions say Grr, Tigers say Rawr, Snakes say Ssss and Birds say Chirp"""
+)
+def jungle_camping():
+    noises = input()
+    noises_dict = {'Grr':'Lion', 'Rawr':'Tiger', 'Ssss':'Snake', 'Chirp':'Bird'}
+    for i in noises.split():
+        print(noises_dict[i], end='')
+    
+@challenge(name="Extra-Terrestrials", 
+    level="Easy", 
+    desc="""
+        Take a word in english that you would like to say, and turn it
+        into language that these aliens will understand"""
+)
+def extra_terrestrials():
+    word = input()
+    print(word[::-1])
 
 @challenge(name="Popsicles", 
     level="Easy", 
