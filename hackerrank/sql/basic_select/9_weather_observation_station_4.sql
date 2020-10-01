@@ -1,0 +1,2 @@
+-- Find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table.
+select (select count(*) from station) - (select count(*) from (select distinct city from station)) from dual;

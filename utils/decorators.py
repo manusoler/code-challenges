@@ -1,3 +1,7 @@
+"""
+Module with some decorators used in the project
+"""
+
 def challenge(*args, **kwargs):
     def inner(func):
         def wrapper(*args1, **kwargs1):

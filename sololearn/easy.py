@@ -1,10 +1,7 @@
 import re
-import sys
 import math
-import string
-from datetime import datetime
 from functools import reduce
-from ..utils.decorators import challenge
+from utils.decorators import challenge
 
 # Challenges
 
@@ -309,9 +306,3 @@ def multiples():
 )
 def number_of_ones():
     print("{:b}".format(int(input())).count('1'))
-
-
-
-if __name__ == "__main__":
-    (locals().get(sys.argv[1],lambda : print('No "{}" challenge found.\nAvailable challenges: {}'
-        .format(sys.argv[1], [k for k,v in globals().items() if callable(v) and k != "challenge" ]))))()

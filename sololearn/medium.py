@@ -3,7 +3,7 @@ import sys
 import math
 import string
 from datetime import datetime
-from ..utils.decorators import challenge
+from utils.decorators import challenge
 
 # Challenges
 @challenge(name="Pig Latin", 
