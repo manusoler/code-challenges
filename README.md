@@ -9,3 +9,4 @@ My own solutions to some code challenges (mainly Python and SQL) from some websi
 - [HackerRank](https://www.hackerrank.com/)
 - [Python Challenge](http://pythonchallenge.com/)
 - [SoloLearn](https://www.sololearn.com/)
+- [Project Euler](https://projecteuler.net/)
