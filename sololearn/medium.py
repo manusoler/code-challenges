@@ -20,6 +20,99 @@ def pig_latin():
 
     print(transl[:-1])
 
+@challenge(name="Roadrunner", 
+    level="Medium", 
+    desc="""
+        Determine wheter or not the roadrunner made it to safety."""
+)
+def roadrunner():
+    distance = int(input())
+    roadrunner_speed = int(input())
+    coyote_speed = int(input())
+    print("Meep Meep" if (50+distance)/coyote_speed > distance/roadrunner_speed else "Yum")
+
+@challenge(name="Super Sale", 
+    level="Medium", 
+    desc="""
+        Given the prices of items you want to purchase, 
+        determine how much you will save during your shoppings!"""
+)
+def super_sale():
+    prices = [float(i) for i in input().split(",")]
+    prices.sort(reverse=True)
+    prices.pop(0)
+    saved = 0
+    for p in prices:
+        saved += p*0.3
+    saved *= 1.07
+    print(int(saved))
+
+@challenge(name="Carrot Cake", 
+    level="Medium", 
+    desc="""
+        Determine if you will have enough leftover carrots to make your cake"""
+)
+def carrot_cake():
+    carrots = int(input())
+    boxes = int(input())
+    print("Cake Time" if carrots % boxes >= 7 else "I need to buy {} more".format(7 - carrots % boxes))
+
+@challenge(name="Building Blocks", 
+    level="Medium", 
+    desc="""
+        If you know how may of each color block you have, 
+        add up the leftover blocks to come up with the
+        amount you will have after you have evenly 
+        distributed each color to all 15 studentes"""
+)
+def building_blocks():
+    blocks = [int(input()) for x in range(4)]
+    leftovers = sum([b%15 for b in blocks])
+    print(leftovers)
+
+@challenge(name="Name Budy", 
+    level="Medium", 
+    desc="""
+        Determine if anyone in your group has the same first
+        letter of their name as you."""
+)
+def name_buddy():
+    names = input().split()
+    my_name = input()
+    print("Compare notes" if any([my_name[0] == s[0] for s in names]) else "No such luck")
+
+@challenge(name="Divisible", 
+    level="Medium", 
+    desc="""
+        Test your number against all of the other numbers that
+        you are given to make sure that it is divisble by them"""
+)
+def divisible():
+    my_int = int(input())
+    ints = [int(x) for x in input().split()]
+    print("divisible by all" if all([my_int % i == 0 for i in ints]) else "not divisible by all")
+
+@challenge(name="Even Numbers", 
+    level="Medium", 
+    desc="""
+        Evaluate each number in your list to see if it is even or odd.
+        Then, output a new list that only contains the even
+        numbers from your original list."""
+)
+def even_numbers():
+    print(" ".join([x for x in input().split() if int(x) % 2 == 0]))
+
+@challenge(name="Tax Free", 
+    level="Medium", 
+    desc="""
+        Determine the total cost once you include tax of 7%
+        on the items that are still taxed."""
+)
+def tax_free():
+    prices = [float(x) if float(x) > 20 else float(x)*1.07 for x in input().split(',')]
+    print(round(sum(prices),2))
+
+
 @challenge(name="Safety Deposit Boxes", 
     level="Medium", 
     desc="""
@@ -71,6 +164,15 @@ def deja_vu():
 def the_spy_life():
     msg = input()
     print("".join(re.findall(r"[A-Za-z ]",msg)[::-1]))
+
+@challenge(name="Hex Color Code Generator", 
+    level="Medium", 
+    desc="""
+        Create a function that accepts three integers that represent
+        the RGB values an outpurs the hex-code representation."""
+)
+def hex_color_code_generator():
+    print("#{:x}{:x}{:x}".format(int(input()), int(input()), int(input())))
 
 @challenge(name="Symbols", 
     level="Medium", 
@@ -196,6 +298,31 @@ def us_date_to_eu():
         fmat = r'%m/%d/%Y'
     time = datetime.strptime(us_date,fmat)
     print(re.sub(r"\b(0)\B","",time.strftime(r'%d/%m/%Y')))
+
+@challenge(name="Text Decompressor", 
+    level="Medium", 
+    desc="""
+        Write a program that takes the compressed text as 
+        input and outputs the decompressed version."""
+)
+def text_decompressor():
+    text = input()
+    chars = zip(text[::2],text[1::2])
+    print("".join([c[0]*int(c[1]) for c in chars]))
+
+@challenge(name="Splitting Strings", 
+    level="Medium", 
+    desc="""
+        Write a program that takes in a string, and a number as input.
+        Split the string into even parts sized by the number, 
+        and output the parts separated by hyphens.
+        The last part of the output will be any leftover, as the input
+        string might not split into the provided parts evenly."""
+)
+def splitting_strings():
+    text = input()
+    parts = int(input())
+    print("-".join([text[i:i+parts] for i in range(0,len(text), parts)]))
 
 if __name__ == "__main__":
     (locals().get(sys.argv[1],lambda : print('No "{}" challenge found.\nAvailable challenges: {}'
