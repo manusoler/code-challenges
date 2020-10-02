@@ -112,6 +112,96 @@ def tax_free():
     prices = [float(x) if float(x) > 20 else float(x)*1.07 for x in input().split(',')]
     print(round(sum(prices),2))
 
+@challenge(name="How Far?", 
+    level="Medium", 
+    desc="""
+        Evaluate how many blocks you'll have to walk if you
+        are given a representation of your street where H 
+        represents the pond, and every B representas a block 
+        in between the two."""
+)
+def how_far():
+    m = re.match(r"^.*H(B*)P.*$", input())
+    print(len(m.group(1)))
+
+@challenge(name="Day of the Week", 
+    level="Medium", 
+    desc="""
+        Create a program that intakes in a string containing
+        a date, and outputs the day of the week."""
+)
+def day_of_the_week():
+    print(datetime.strptime(input(),'%m/%d/%Y').strftime('%A'))
+
+@challenge(name="Camel to Snake", 
+    level="Medium", 
+    desc="""
+        Write a program that takes in a string that has camel casing,
+        and outputs the same string but with snake casing."""
+)
+def camel_to_snake():
+    txt = input()
+    print(txt[0].lower() + re.sub(r"([A-Z])","_\g<1>",txt[1:]).lower())
+
+@challenge(name="Days between dates", 
+    level="Medium", 
+    desc="""
+        Calculate how many days have passed between two input dates
+        and output the result"""
+)
+def days_between_dates():
+    dt1 = datetime.strptime(input(), '%B %d, %Y')
+    dt2 = datetime.strptime(input(), '%B %d, %Y')
+    print((dt2-dt1).days)
+
+@challenge(name="Snowballing Numbers", 
+    level="Medium", 
+    desc="""
+        """
+)
+def snowballing_numbers():
+    pass
+
+@challenge(name="Flowing Words", 
+    level="Medium", 
+    desc="""
+        """
+)
+def flowing_words():
+    pass
+
+@challenge(name="Missing Numbers", 
+    level="Medium", 
+    desc="""
+        """
+)
+def missing_numbers():
+    pass
+
+@challenge(name="Initials", 
+    level="Medium", 
+    desc="""
+        """
+)
+def initials():
+    pass
+
+@challenge(name="Credit Card Validator", 
+    level="Medium", 
+    desc="""
+        """
+)
+def creadit_card_validator():
+    pass
+
+@challenge(name="CMYK to RGB", 
+    level="Medium", 
+    desc="""
+        """
+)
+def cmyk_to_rgb():
+    pass
+
 
 @challenge(name="Safety Deposit Boxes", 
     level="Medium", 
