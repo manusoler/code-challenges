@@ -1,6 +1,8 @@
 import sys
 import os
 
+import projecteuler.pe_5_smallest_multiple
+import projecteuler.pe_6_sum_square_difference
 import pythonchallenge.pythonchallenge
 import sololearn.easy
 import sololearn.medium
