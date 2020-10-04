@@ -121,7 +121,7 @@ def tax_free():
         in between the two."""
 )
 def how_far():
-    m = re.match(r"^.*H(B*)P.*$", input())
+    m = re.match(r"^.*[HP](B*)[HP].*$", input())
     print(len(m.group(1)))
 
 @challenge(name="Day of the Week", 
@@ -157,18 +157,33 @@ def days_between_dates():
 @challenge(name="Snowballing Numbers", 
     level="Medium", 
     desc="""
-        """
+        Create a program that takes in an array of
+        numbers, check if each number is greater than
+        the sum of all previous numbers, and output
+        true if the condition is met, and false, if not."""
 )
 def snowballing_numbers():
-    pass
+    n = int(input())
+    summ, cond = 0, True
+    for i in range(n):
+        a = int(input())
+        if a <= summ:
+            cond = False
+        summ += a
+    print(str(cond).lower())
 
 @challenge(name="Flowing Words", 
     level="Medium", 
     desc="""
-        """
+        Write a program that takes in a string that
+        contains a sentence, checks if the first letter of
+        each word is the same as the last letter of the
+        previous one. If the condition es met, output
+        true, if not false.
+        Casing does not matter."""
 )
 def flowing_words():
-    pass
+    print("false" if re.match(r"(\w) (?!\1)", input()) else "true")
 
 @challenge(name="Missing Numbers", 
     level="Medium", 
