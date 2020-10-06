@@ -1,3 +1,4 @@
+from utils.decorators import timer
 from .pe_3_largest_prime_factor import prime_iter
 """
 The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
@@ -14,6 +15,8 @@ def summation_of_primes_below(n):
         summation += p
     return summation
 
+
+@timer
 def main():
     print(summation_of_primes_below(2000000))
 

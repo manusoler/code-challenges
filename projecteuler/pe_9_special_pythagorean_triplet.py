@@ -1,5 +1,7 @@
 import functools
 from math import sqrt
+
+from utils.decorators import timer
 """
 A Pythagorean triplet is a set of three natural numbers, a < b < c, for which, a**2+b**2=c**2
 a2 + b2 = c2
@@ -17,7 +19,7 @@ def pythagorean_triplet(summ):
             if a + b + c == summ:
                 return (a,b,int(c))
 
-
+@timer
 def main():
     triplet = pythagorean_triplet(1000)
     print("Triplet: {}, Product: {}".format(triplet, functools.reduce(lambda x,y: x*y, triplet)))
