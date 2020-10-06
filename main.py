@@ -5,6 +5,7 @@ import projecteuler.pe_5_smallest_multiple
 import projecteuler.pe_6_sum_square_difference
 import projecteuler.pe_8_largest_product_in_a_series
 import projecteuler.pe_9_special_pythagorean_triplet
+import projecteuler.pe_10_summation_of_primes
 import pythonchallenge.pythonchallenge
 import sololearn.easy
 import sololearn.medium
