@@ -9,6 +9,9 @@ import projecteuler.pe_10_summation_of_primes
 import projecteuler.pe_11_largest_product_in_grid
 import projecteuler.pe_12_highly_divisible_triangular_number
 import projecteuler.pe_13_large_sum
+import projecteuler.pe_14_longest_collatz_sequence
+import projecteuler.pe_16_power_digit_sum
+import projecteuler.pe_17_number_letter_counts
 import pythonchallenge.pythonchallenge
 import sololearn.easy
 import sololearn.medium
