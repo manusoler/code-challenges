@@ -12,9 +12,10 @@ import projecteuler.pe_13_large_sum
 import projecteuler.pe_14_longest_collatz_sequence
 import projecteuler.pe_16_power_digit_sum
 import projecteuler.pe_17_number_letter_counts
-import projecteuler.pe_18_maximum_path_sum_I
+#import projecteuler.pe_18_maximum_path_sum_I
 import projecteuler.pe_19_counting_sundays
 import projecteuler.pe_20_factorial_digit_sum
+import projecteuler.pe_21_amicable_numbers
 import pythonchallenge.pythonchallenge
 import sololearn.easy
 import sololearn.medium
