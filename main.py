@@ -17,6 +17,8 @@ import projecteuler.pe_19_counting_sundays
 import projecteuler.pe_20_factorial_digit_sum
 import projecteuler.pe_21_amicable_numbers
 import projecteuler.pe_22_names_scores
+import projecteuler.pe_23_non_abundant_sums
+import projecteuler.pe_24_lexicographic_permutations
 import projecteuler.pe_25_1000_digit_fibonacci_number
 import pythonchallenge.pythonchallenge
 import sololearn.easy
