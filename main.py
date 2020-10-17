@@ -20,6 +20,7 @@ import projecteuler.pe_22_names_scores
 import projecteuler.pe_23_non_abundant_sums
 import projecteuler.pe_24_lexicographic_permutations
 import projecteuler.pe_25_1000_digit_fibonacci_number
+import projecteuler.pe_29_distinct_powers
 import pythonchallenge.pythonchallenge
 import sololearn.easy
 import sololearn.medium
