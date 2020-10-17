@@ -10,6 +10,7 @@ import projecteuler.pe_11_largest_product_in_grid
 import projecteuler.pe_12_highly_divisible_triangular_number
 import projecteuler.pe_13_large_sum
 import projecteuler.pe_14_longest_collatz_sequence
+import projecteuler.pe_15_lattice_paths
 import projecteuler.pe_16_power_digit_sum
 import projecteuler.pe_17_number_letter_counts
 #import projecteuler.pe_18_maximum_path_sum_I
