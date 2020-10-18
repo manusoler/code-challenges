@@ -13,7 +13,7 @@ import projecteuler.pe_14_longest_collatz_sequence
 import projecteuler.pe_15_lattice_paths
 import projecteuler.pe_16_power_digit_sum
 import projecteuler.pe_17_number_letter_counts
-#import projecteuler.pe_18_maximum_path_sum_I
+import projecteuler.pe_18_maximum_path_sum_I
 import projecteuler.pe_19_counting_sundays
 import projecteuler.pe_20_factorial_digit_sum
 import projecteuler.pe_21_amicable_numbers
@@ -22,6 +22,7 @@ import projecteuler.pe_23_non_abundant_sums
 import projecteuler.pe_24_lexicographic_permutations
 import projecteuler.pe_25_1000_digit_fibonacci_number
 import projecteuler.pe_29_distinct_powers
+import projecteuler.pe_67_maximum_path_sum_II
 import pythonchallenge.pythonchallenge
 import sololearn.easy
 import sololearn.medium
