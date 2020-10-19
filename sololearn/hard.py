@@ -53,6 +53,18 @@ def map_2d():
     print(abs(p2[0]-p1[0]) + abs(p2[1]-p1[1]))
 
 
+@challenge(name="Password Validation",
+           level="Hard",
+           desc="""
+            Check if a password has at least 2 words and 2 special chars,
+            and a minumum length of 7."""
+           )
+def password_validation():
+    passw = input()
+    print("Strong" if (re.match(r"^.*\d+.*\d+.*$", passw) and re.match(r"^.*[\!\@\#\$\%\&\*]+.*[\!\@\#\$\%\&\*]+.*$", passw) and len(passw) >= 7) else "Weak")
+
+
+
 @challenge(name="Hofstadter's Q-Sequence",
            level="Hard",
            desc="""
