@@ -64,6 +64,33 @@ def password_validation():
     print("Strong" if (re.match(r"^.*\d+.*\d+.*$", passw) and re.match(r"^.*[\!\@\#\$\%\&\*]+.*[\!\@\#\$\%\&\*]+.*$", passw) and len(passw) >= 7) else "Weak")
 
 
+@challenge(name="Security",
+           level="Hard",
+           desc="""
+            Evaluate a given floor of the casino to determine
+            if there us a guard between the money and the thief,
+            if there is not, you will sound an alarm."""
+           )
+def security():
+    safe = "TG$"
+    mapa = input().replace('x', '')
+    print("quiet" if (safe == mapa or safe[::-1] == mapa) else "ALARM")
+
+
+
+@challenge(name="New Driver's License",
+           level="Hard",
+           desc="""
+            Given everyone's name that showed up at the same
+            time, determine how long it will take to get
+            your new license."""
+           )
+def new_drivers_license():
+    my_name = input()
+    available_agents = int(input())
+    others_names = input().split()
+    others_names.append(my_name)
+    print(sorted(others_names).index(my_name)//available_agents*20 + 20)
 
 @challenge(name="Hofstadter's Q-Sequence",
            level="Hard",
