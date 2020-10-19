@@ -74,7 +74,9 @@ def password_validation():
 def security():
     safe = "TG$"
     mapa = input().replace('x', '')
-    print("quiet" if (safe == mapa or safe[::-1] == mapa) else "ALARM")
+    money = mapa.index('$')
+    
+    print("quiet" if (money == 0 or mapa[money-1] != 'T') and (money == len(mapa)-1 or mapa[money+1] != 'T') else "ALARM")
 
 
 
