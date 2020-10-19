@@ -96,8 +96,39 @@ def longest_common_substring():
             Nth decimal digit of Pi."""
            )
 def digits_of_pi():
-    pass
-
+    def calcPi(limit):  # Generator function
+        q, r, t, k, n, l = 1, 0, 1, 1, 3, 3
+        decimal = limit
+        counter = 0
+        while counter != decimal + 1:
+            if 4 * q + r - t < n * t:
+                # yield digit
+                yield n
+                # insert period after first digit
+                if counter == 0:
+                        yield '.'
+                # end
+                if decimal == counter:
+                        print('')
+                        break
+                counter += 1
+                nr = 10 * (r - n * t)
+                n = ((10 * (3 * q + r)) // t) - 10 * n
+                q *= 10
+                r = nr
+            else:
+                nr = (2 * q + r) * l
+                nn = (q * (7 * k) + 2 + (r * l)) // (t * l)
+                q *= k
+                t *= l
+                l += 2
+                k += 1
+                n = nn
+                r = nr
+    
+    pi_digits = calcPi(int(input()))
+    print([d for d in pi_digits][-1])
+    
 
 @challenge(name="Poker Hand",
            level="Hard",
@@ -140,10 +171,10 @@ def word_rank():
         return permutation + str(elems[0])
     
     word = input()
-    for i in range(fact(len(word))):
-        if nth_permutation(sorted(word), i) == word:
-            print(i+1)
-            break
+    perms = []
+    for i in range(1, fact(len(word))):
+        perms.append(nth_permutation(sorted(word), i))
+    print(sorted(list(set(perms))).index(word)+1)
 
 
 
