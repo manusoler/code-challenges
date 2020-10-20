@@ -22,6 +22,8 @@ import projecteuler.pe_23_non_abundant_sums
 import projecteuler.pe_24_lexicographic_permutations
 import projecteuler.pe_25_1000_digit_fibonacci_number
 import projecteuler.pe_26_reciprocal_cycles
+import projecteuler.pe_27_quadratic_primes
+import projecteuler.pe_28_number_spiral_diagonal
 import projecteuler.pe_29_distinct_powers
 #import projecteuler.pe_67_maximum_path_sum_II
 import pythonchallenge.pythonchallenge
