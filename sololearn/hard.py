@@ -72,12 +72,9 @@ def password_validation():
             if there is not, you will sound an alarm."""
            )
 def security():
-    safe = "TG$"
     mapa = input().replace('x', '')
     money = mapa.index('$')
-    
     print("quiet" if (money == 0 or mapa[money-1] != 'T') and (money == len(mapa)-1 or mapa[money+1] != 'T') else "ALARM")
-
 
 
 @challenge(name="New Driver's License",
@@ -177,8 +174,82 @@ def digits_of_pi():
             Output the rank of the give poker hand."""
            )
 def poker_hand():
-    pass
+    class Card(object):
+        def __init__(self, value, suite):
+            self.value = int({"J":11,"Q":12,"K":13,"A":14}.get(value, value))
+            self.suite = suite
+        
+        def __lt__(self, obj):
+            return self.value < obj.value
+        
+    
+    class PokerHand:
+        def __init__(self):
+            self.hand = []
+            self.dict_values = {}
+            self.dict_suites = {}
+        
+        def add_card(self, card):
+            self.hand.append(card)
+            self.dict_values[card.value] = self.dict_values.get(card.value, 0) + 1
+            self.dict_suites[card.suite] = self.dict_suites.get(card.suite, 0) + 1
 
+        def is_royal_flush(self):
+            sorted_hand = sorted(self.hand)
+            return sorted_hand[0].value == 10 and self.is_straight_flush()
+
+        def is_straight_flush(self):
+            return self.is_flush() and self.is_straight()
+
+        def is_four_of_a_kind(self):
+            return len([k for k,v in self.dict_values.items() if v == 4]) == 1
+
+        def is_full_house(self):
+            return self.is_three_of_a_kind() and self.is_one_pair()
+
+        def is_flush(self):
+            return len(set(self.dict_suites.keys())) == 1
+
+        def is_straight(self):
+            sorted_hand = sorted(self.hand)
+            return sorted_hand[0].value + 4 == sorted_hand[-1].value
+
+        def is_three_of_a_kind(self):
+            return len([k for k,v in self.dict_values.items() if v == 3]) == 1
+
+        def is_two_pairs(self):
+            return len([k for k,v in self.dict_values.items() if v == 2]) == 2
+
+        def is_one_pair(self):
+            return len([k for k,v in self.dict_values.items() if v == 2]) == 1
+
+        def get_rank(self):
+            if self.is_royal_flush():
+                return "Royal Flush"
+            elif self.is_straight_flush():
+                return "Straight Flush"
+            elif self.is_four_of_a_kind():
+                return "Four of a Kind"
+            elif self.is_full_house():
+                return "Full House"
+            elif self.is_flush():
+                return "Flush"
+            elif self.is_straight():
+                return "Straight"
+            elif self.is_three_of_a_kind():
+                return "Three of a Kind"
+            elif self.is_two_pairs():
+                return "Two Pairs"
+            elif self.is_one_pair():
+                return "One Pair"
+            else:
+                return "High Card"
+    
+    hand = PokerHand()
+    str_hand = input().split()
+    for c in str_hand:
+        hand.add_card(Card(c[0],c[1]))
+    print(hand.get_rank())
 
 @challenge(name="Word rank",
            level="Hard",
