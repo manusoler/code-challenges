@@ -248,7 +248,7 @@ def poker_hand():
     hand = PokerHand()
     str_hand = input().split()
     for c in str_hand:
-        hand.add_card(Card(c[0],c[1]))
+        hand.add_card(Card(c[0:-1],c[-1]))
     print(hand.get_rank())
 
 @challenge(name="Word rank",
