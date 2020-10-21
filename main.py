@@ -25,6 +25,8 @@ import projecteuler.pe_26_reciprocal_cycles
 import projecteuler.pe_27_quadratic_primes
 import projecteuler.pe_28_number_spiral_diagonal
 import projecteuler.pe_29_distinct_powers
+import projecteuler.pe_30_digit_fifth_powers
+import projecteuler.pe_32_pandigital_products
 #import projecteuler.pe_67_maximum_path_sum_II
 import pythonchallenge.pythonchallenge
 import sololearn.easy
